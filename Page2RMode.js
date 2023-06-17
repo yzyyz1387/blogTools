@@ -4,22 +4,14 @@
 // SoftWare: WebStorm
 window.onload = function () {
 
-
     let article = document.getElementsByClassName("article")[0]
     let l_body = document.getElementsByClassName("l_body")[0]
     let card_shadow = document.getElementsByClassName("card-shadow")[0]
 
-
     function recovery() {
-        let modeBtn = document.getElementById("mode-btn")
-        article.style.fontSize = "17px"
-        article.style.fontFamily = "'Varela Round',\"Microsoft YaHei\",\"Source Sans Pro\",\"Helvetica Neue\",Menlo,Monaco,monospace,\"Lucida Console\",sans-serif,Helvetica,\"Hiragino Sans GB\",\"Hiragino Sans GB W3\",Source Han Sans CN Regular,WenQuanYi Micro Hei,Arial,sans-serif"
-        l_body.style.background = "unset"
-        card_shadow.style.boxShadow = "0 1px 2px 0 rgba(0,0,0,.1)"
-        modeBtn.className = " s-top show fa fa-book"
-
-
+        location.reload();
     }
+
     function changeCss() {
         remove_particle()
         let modeBtn = document.getElementById("mode-btn")
@@ -29,14 +21,13 @@ window.onload = function () {
         article.style.fontFamily = "SimSun"
         l_body.style.background = "#fff"
         card_shadow.style.boxShadow = "unset"
-
     }
+
     function remove_particle(){
         let find_canvas = document.getElementsByTagName("canvas")
         for (let cn of find_canvas){
             cn.parentElement.removeChild(cn)
         }
-
         let body = document.getElementsByTagName("body")[0]
         body.style.backgroundColor="#fdfdfd"
     }
@@ -56,9 +47,11 @@ window.onload = function () {
         let RM = document.getElementById("RM")
         if (RM) {
             //写入本地储存 ，mode = 1
-            window.localStorage.setItem("mode", "1")
-
-            changeCss()
+            let localMode =   window.localStorage.getItem("mode")
+            if (localMode === null){
+                window.localStorage.setItem("mode", "1")
+                changeCss()
+            }
 
         }
     }
