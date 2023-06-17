@@ -52,11 +52,12 @@ window.onload = function () {
     }
 
     if (window.location.pathname.startsWith('/archives/')) {
+        creatBtn()
         let RM = document.getElementById("RM")
         if (RM) {
             //写入本地储存 ，mode = 1
             window.localStorage.setItem("mode", "1")
-            creatBtn()
+
             changeCss()
 
         }
