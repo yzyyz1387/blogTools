@@ -25,6 +25,7 @@ window.onload = function () {
         let modeBtn = document.getElementById("mode-btn")
         modeBtn.className = " s-top show fa fa-star"
         article.style.fontSize = "25px"
+        article.style.textAlign = "justify"
         article.style.fontFamily = "SimSun"
         l_body.style.background = "#fff"
         card_shadow.style.boxShadow = "unset"
